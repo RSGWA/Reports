@@ -1,0 +1,15 @@
+CBO - Coupling between objects
+LCOM - Lack of Cohesion of Methods
+CBO is a metric that measures the number of classes to which a class is coupled with. Measures how reusable, maintainable, and testable 
+a class is.
+
+High cohesion within a class and low coupling between classes are features of good SOFTWARE design. However, it can also be a 
+reflective indicator of good OBJECT-ORIENTED design
+
+      Total LCOM    Total CBO   Total_Modules   Total_Ce    LCOM + CBO    Total WMC   WMC + CBO
+1001  45            18          6               9           63            41          59
+1019  93            58          13              36          151           65          109
+1020  61            66          15              48          127           75          138
+1025  40            20          6               10          60            36          56
+1036  48            14          5               7           62            29          43  
+1042  38            14          5               8           52            27          38
