@@ -25,15 +25,17 @@ List of designs in decreasing order of rank:
 \begin{enumerate}
 	\item Design 1001
 	\item Design 1036 == Design 1042
-	\item Design 1025
 	\item Design 1019
-	\item Design 1020
+	\item Design 1020 == Design 1025
 \end{enumerate}
+\begin{description}
+	\item[== meaning the Designs are ranked equally.]
+\end{description}
 
 \section{Methodology}
 In order to rank the designs according to the goodness of their object-oriented design, pairs of designs were compared empirically. Metrics were used as a reflective indicator as to whether the empirical relationship between designs held or not i.e. to confirm the relationship. 
 
-To compare two designs empirically based on the goodness of their object-oriented design, the sets objects created from both are compared. The goodness of an object-oriented design depends on the objects and whether the objects created accurately model real world concepts with clear state, behaviour and identity, as well as making sense within the context of the problem being addressed. Therefore, comparing the sets of objects between two designs using this criteria will effectively provide the empirical relationship between them.
+To compare two designs empirically based on the goodness of their object-oriented design, the sets objects created from both are compared. The goodness of an object-oriented design depends on the objects and whether the objects created accurately model real world concepts with clear state, behaviour and identity, as well as making sense within the context of the problem being addressed. To be more specific, the set of compared objects must be necessary within the context schema. Avoiding things like multiple objects of a class being created when not relevant to the context, objects encompassing more than one concept which should be separate, or objects representing separate concepts when they should not be. Therefore, comparing the sets of objects between two designs using this criteria will effectively prove whether one design is better than the other.  
 
 To ease the process of ranking the designs, the amount of pairs needed to be compared were reduced by dividing the designs into two sub-groups using the average CBO (Coupling between Objects) value, with the designs with similar average CBO values being grouped together. This metric measures the number of classes to which a class is coupled with and is indicative of how reusable and maintainable a class is. This can also be a reflective indicator of good object-oriented design because objects that are reusable in other contexts can indicate that the real world concept it represents is accurate. 
 
@@ -43,7 +45,7 @@ With the given designs, the two sub-groups were formed:
 	\item Design 1001, 1036, 1042
 	\item Design 1019, 1020, 1025
 \end{enumerate}
-This means that the designs within sub-group 1 are empirically better than those in sub-group 2. 
+This means that the designs within sub-group 1 are empirically better than those in sub-group 2, thus there no need to compare designs between sub-groups.
 
 \subsection{Comparing Design 1001 and Design 1036}
 Both designs incorporate objects which encompass the concept of a board, however, in Design 1036, objects are created to represent pits and mancala pits which are both relevant to the context schema but could have both been included within MancalaBoard object. The context schema does not necessarily require all these objects to be handled separately. When Pit and MancalaPit objects are used, it is used with MancalaBoard so it would make more sense for both these concepts to be encompassed in a single object. In Design 1001, there is a similar occurrence with TurnManager, which is an object that carries state of the current players turn, which could be placed in BoardManager or Board object, however, the TurnManager object can be required to be dealt with independently of the board. Therefore, Design 1001 is a better object-oriented design than Design 1036.
@@ -51,18 +53,15 @@ Both designs incorporate objects which encompass the concept of a board, however
 \subsection{Comparing Design 1036 and Design 1042}
 Both designs create objects that correspond to the concept of a Board and a Pit/House, however, Design 1036 contains a MancalaPit object which carries the respective owners score. This is referred to by the context schema but the concept of the store and a pit are similar enough that it could be encompassed using only a Pit object. Similarly, the House object in Design 1042 is related to the KalahBoard object however these objects are not required to be dealt with separately so those responsibilities and state in House object can be included within KalahBoard. Both designs are similar in the objects that they create and the responsibilities of each object, and they both make sense within the context schema. Therefore, Design 1036 and 1042 have similar rankings.
 
+Design 1001 is better than 1036, and 1036 is of equal rank with 1042. Therefore, Design 1001 is better than 1042.
+
 \subsection{Comparing Design 1019 and Design 1020}
+Design 1019 uses the MVC (Model View Controller) design pattern. This creates three key objects: DefaultController, DefaultModel, and DefaultView. DefaultController handles all responsibilities and behaviours expected within the context schema, DefaultModel handles all the expected state, and DefaultView handles the interaction between the user and the program. Although these objects are not explicitly referred to by the context schema or are they abstractions of entities in the real world, they are good objects as their roles within the program and their collaboration patterns are well defined. In Design 1020, the set of objects do correspond to the context schema, however, many of the objects are unnecessarily separated creating unnecessary objects such as Seed objects and the objects representing different rules. Although the concepts which the objects encompass are referred to by the context schema, having the concepts fine grained as this does not make sense. Therefore, Design 1019 is a better object-oriented design than Design 1020.
 
+\subsection{Comparing Design 1020 and Design 1025}
+Both designs create objects with similar responsibilities that correspond to the same concepts e.g. Player and House, however they both create objects that correspond to the same concepts but do not have the same responsibilities such as the Board object. In Design 1025, the Board objects only role is printing the state of the Player object so having it as a separate object to represent the Board concept is not necessary as this is already encompassed within the Player object. Also, the Player object is identified as such leading to the belief that is corresponds to Player responsibilities and state. In both designs, the Player object include aspects which are more inclined towards the concept of a Board such as houses and stores. Although they are owned by the Player, it would make more sense to include these aspects in the Board object so that the roles are better defined. Therefore, Design 1020 and Design 1025 have similar rankings.
 
+Design 1019 is better than 1020, and 1020 is of equal rank with 1025. Therefore, Design 1019 is better than 1025.
 
-%\begin{thebibliography}{00}
-%\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-%\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-%\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-%\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-%\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-%\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-%\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
-%\end{thebibliography}
 
 \end{document}
